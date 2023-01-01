@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
+import { ImSearch } from "react-icons/im";
 
 const SearchForm = ({ onSearch }) => {
     const [value, setValue] = useState("");
@@ -9,23 +10,23 @@ const SearchForm = ({ onSearch }) => {
     };
 
     return (
-        <div className="input-group mb-3 w-50 mx-auto">
+        <div className="flex">
             <input
                 type="text"
-                className="form-control"
-                placeholder="Найти..."
-                aria-label="Recipient's username"
-                aria-describedby="button-addon2"
+                className="w-96 border-[#7A8D9B] rounded"
+                placeholder="  Найти..."
+                // aria-label="Recipient's username"
+                // aria-describedby="button-addon2"
                 onChange={handleChangeValue}
                 value={value}
             />
             <button
-                className="btn btn-outline-secondary"
+                className="rounded mx-1"
                 type="button"
-                id="button-addon2"
+                // id="button-addon2"
                 onClick={() => onSearch(value)}
             >
-                <i className="bi bi-search" />
+                <ImSearch className="text-[#7A8D9B]" size="25" />
             </button>
         </div>
     );

@@ -12,7 +12,9 @@ const Main = () => {
     return (
         <>
             <h1 className="text-center">Пряники Самара</h1>
+            <div className="mt-10 flex justify-center">
             <SearchForm onSearch={handleSearch} />
+            </div>
             {newProducts.length > 0 ? (
                 <div className="container mt-5">
                     <div className="row">

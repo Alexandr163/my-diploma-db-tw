@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { useNavigate } from "react-router-dom";
+import { ImArrowLeft } from "react-icons/im";
 
 const ButtonGoBack = ({ count = -1 }) => {
     const navigate = useNavigate();
@@ -10,11 +11,8 @@ const ButtonGoBack = ({ count = -1 }) => {
     };
 
     return (
-        <button
-            className="btn btn-outline-primary mb-3 btn-sm"
-            onClick={handleBack}
-        >
-            <i className="bi bi-backspace" />
+        <button className="bg-[#7A8D9B] rounded" onClick={handleBack}>
+            <ImArrowLeft className="text-[#DABEB6]" size="25" />
         </button>
     );
 };

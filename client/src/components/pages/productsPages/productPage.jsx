@@ -6,6 +6,7 @@ import { getIsAuth, getisAuthAdmin } from "../../../store/authSlice";
 import { addProductInCart, getCart } from "../../../store/cart";
 import ButtonGoBack from "../../forms/buttonGoBack";
 import Loader from "../../loader";
+import { ImEqualizer2 } from "react-icons/im";
 
 const ProductPage = () => {
     const { productId } = useParams();
@@ -44,9 +45,9 @@ const ProductPage = () => {
                                 <ButtonGoBack />
                                 {isAuthAdmin ? (
                                     <button
-                                        className="btn btn-outline-primary mb-3 btn-sm bi bi-pencil-square"
+                                        className="bg-[#7A8D9B] rounded mx-1"
                                         onClick={handleEdit}
-                                    ></button>
+                                    ><ImEqualizer2 className="text-[#DABEB6]" size="25" /></button>
                                 ) : null}
                             </div>
                             <div className="d-flex justify-content-beetwen">

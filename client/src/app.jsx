@@ -9,7 +9,6 @@ import CartPage from "./components/pages/cartPage/cartPage";
 import ProductPage from "./components/pages/productsPages/productPage";
 import LogOut from "./components/logOut";
 import RegisterForm from "./components/ui/registerForm";
-import "bootstrap/dist/css/bootstrap.css";
 import ProtectedRoute from "./components/hoc/protectedRoute";
 import { useDispatch, useSelector } from "react-redux";
 import localStorageService from "./services/localStorage.service";
