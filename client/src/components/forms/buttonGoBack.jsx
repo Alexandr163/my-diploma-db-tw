@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { useNavigate } from "react-router-dom";
-import { ImArrowLeft } from "react-icons/im";
+import { FiArrowLeft } from "react-icons/fi";
 
 const ButtonGoBack = ({ count = -1 }) => {
     const navigate = useNavigate();
@@ -11,8 +11,8 @@ const ButtonGoBack = ({ count = -1 }) => {
     };
 
     return (
-        <button className="bg-[#7A8D9B] rounded" onClick={handleBack}>
-            <ImArrowLeft className="text-[#DABEB6]" size="25" />
+        <button className="bg-[#7A8D9B] rounded hover:bg-[#596872] duration-500" onClick={handleBack}>
+            <FiArrowLeft className="text-[#DABEB6]" size="25" />
         </button>
     );
 };

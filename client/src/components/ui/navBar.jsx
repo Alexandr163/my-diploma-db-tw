@@ -15,22 +15,22 @@ const NavBar = () => {
             <div className="">
                 <ul className="flex items-center">
                     <li className="m-2">
-                        <Link className="text-[#DABEB6] hover:text-[#B2B9BF] duration-500" aria-current="page" to="/">
+                        <Link className="text-[#DABEB6] hover:text-[#B2B9BF] duration-500" to="/">
                             <ImHome size="25" />
                         </Link>
                     </li>
                     <li className="m-2">
-                        <Link className="text-[#DABEB6] hover:text-[#B2B9BF] duration-500" aria-current="page" to="/categories">
+                        <Link className="text-[#DABEB6] hover:text-[#B2B9BF] duration-500" to="/categories">
                             <ImMenu size="25" />
                         </Link>
                     </li>
                     <li className="m-2">
                         {!isAuth ? null : isAuthAdmin ? (
-                            <Link className="text-[#DABEB6] hover:text-[#B2B9BF] duration-500" aria-current="page" to="/admin">
+                            <Link className="text-[#DABEB6] hover:text-[#B2B9BF] duration-500" to="/admin">
                                 <BsGear size="25" />
                             </Link>
                         ) : (
-                            <Link className="text-[#DABEB6] hover:text-[#B2B9BF] duration-500" aria-current="page" to="/cart">
+                            <Link className="text-[#DABEB6] hover:text-[#B2B9BF] duration-500" to="/cart">
                                 <BsCart4 size="25" />
                             </Link>
                         )}

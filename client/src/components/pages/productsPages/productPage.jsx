@@ -6,7 +6,7 @@ import { getIsAuth, getisAuthAdmin } from "../../../store/authSlice";
 import { addProductInCart, getCart } from "../../../store/cart";
 import ButtonGoBack from "../../forms/buttonGoBack";
 import Loader from "../../loader";
-import { ImEqualizer2 } from "react-icons/im";
+import { FiEdit3 } from "react-icons/fi";
 
 const ProductPage = () => {
     const { productId } = useParams();
@@ -38,56 +38,48 @@ const ProductPage = () => {
     return (
         <>
             {product ? (
-                <div className="container mt-5">
-                    <div className="row">
-                        <div className="col-md-6 offset-md-3 shadow p-4">
-                            <div className="btn-group">
-                                <ButtonGoBack />
-                                {isAuthAdmin ? (
-                                    <button
-                                        className="bg-[#7A8D9B] rounded mx-1"
-                                        onClick={handleEdit}
-                                    ><ImEqualizer2 className="text-[#DABEB6]" size="25" /></button>
-                                ) : null}
-                            </div>
-                            <div className="d-flex justify-content-beetwen">
-                                <img
-                                    className="rounded float-start"
-                                    src={`/img/${product.image}`}
-                                    width="200px"
-                                    height="200px"
-                                />
-                                <div className="mx-5 w-50">
-                                    <h4 className="text-center">
-                                        {product.title}
-                                    </h4>
-                                    <div className="d-flex justify-content-beetwen text-center w-100">
-
-                                    <span className="text-center">
-                                        {product.description}
-                                    </span>
-                                    </div>
-                                </div>
-                            </div>
-                            <h5 className="text-end">{product.price} руб.</h5>
-
-                            {!isAuth ||
-                            isAuthAdmin ? null : !isProductInCart ? (
-                                <button
-                                    className="btn btn-outline-primary btn-sm mt-3"
-                                    onClick={handleAddToCart}
-                                >
-                                    Купить
-                                </button>
-                            ) : (
-                                <Link to="/cart">
-                                    <button className="btn btn-outline-primary btn-sm">
-                                        В корзину
-                                    </button>
-                                </Link>
-                            )}
+                <div className="container mx-auto mt-10 rounded-lg shadow-xl p-10 bg-[#DABEB6] text-[#7A8D9B]">
+                    <div className="">
+                        <ButtonGoBack />
+                        {isAuthAdmin ? (
+                            <button
+                                className="bg-[#7A8D9B] rounded hover:bg-[#596872] duration-500 mx-1"
+                                onClick={handleEdit}
+                            >
+                                <FiEdit3 className="text-[#DABEB6]" size="25" />
+                            </button>
+                        ) : null}
+                    </div>
+                    <div className="flex justify-beetwen">
+                        <img
+                            className="rounded-md shadow-xl"
+                            src={`/img/${product.image}`}
+                            width="200px"
+                            height="200px"
+                        />
+                        <div className="mx-5 w-50">
+                            <h2 className="text-center">{product.title}</h2>
+                                <span className="text-center">
+                                    {product.description}
+                                </span>
                         </div>
                     </div>
+                    <h5 className="text-end">{product.price} руб.</h5>
+
+                    {!isAuth || isAuthAdmin ? null : !isProductInCart ? (
+                        <button
+                            className="bg-[#7A8D9B] rounded text-[#DABEB6] px-1 hover:bg-[#596872] duration-500"
+                            onClick={handleAddToCart}
+                        >
+                            Купить
+                        </button>
+                    ) : (
+                        <Link to="/cart">
+                            <button className="bg-[#7A8D9B] rounded text-[#DABEB6] px-1 hover:bg-[#596872] duration-500">
+                                В корзину
+                            </button>
+                        </Link>
+                    )}
                 </div>
             ) : (
                 <Loader />

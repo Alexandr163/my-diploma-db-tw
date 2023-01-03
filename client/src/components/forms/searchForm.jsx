@@ -13,20 +13,17 @@ const SearchForm = ({ onSearch }) => {
         <div className="flex">
             <input
                 type="text"
-                className="w-96 border-[#7A8D9B] rounded"
+                className="w-96 bg-[#f0e3e0] rounded"
                 placeholder="  Найти..."
-                // aria-label="Recipient's username"
-                // aria-describedby="button-addon2"
                 onChange={handleChangeValue}
                 value={value}
             />
             <button
                 className="rounded mx-1"
                 type="button"
-                // id="button-addon2"
                 onClick={() => onSearch(value)}
             >
-                <ImSearch className="text-[#7A8D9B]" size="25" />
+                <ImSearch className="text-[#7A8D9B] hover:text-[#f0e3e0] duration-500" size="25" />
             </button>
         </div>
     );
