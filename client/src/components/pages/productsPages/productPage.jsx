@@ -38,15 +38,15 @@ const ProductPage = () => {
     return (
         <>
             {product ? (
-                <div className="container mx-auto mt-10 rounded-lg shadow-xl p-10 bg-[#DABEB6] text-[#7A8D9B]">
+                <div className="container w-5/12 mx-auto mt-10 rounded-lg shadow-xl p-10 bg-[#DABEB6] text-[#7A8D9B]">
                     <div className="">
                         <ButtonGoBack />
                         {isAuthAdmin ? (
                             <button
-                                className="bg-[#7A8D9B] rounded hover:bg-[#596872] duration-500 mx-1"
+                                className="btn-style rounded-r-md"
                                 onClick={handleEdit}
                             >
-                                <FiEdit3 className="text-[#DABEB6]" size="25" />
+                                <FiEdit3 size="25" />
                             </button>
                         ) : null}
                     </div>
@@ -58,28 +58,44 @@ const ProductPage = () => {
                             height="200px"
                         />
                         <div className="mx-5 w-50">
-                            <h2 className="text-center">{product.title}</h2>
-                                <span className="text-center">
+                            <h2 className="text-center text-lg font-bold border-2 border-[#7A8D9B] rounded-md">
+                                {product.title}
+                            </h2>
+                            <div className="mt-3 border-2 border-[#7A8D9B] rounded-md text-center">
+                                <p className="font-semibold">
                                     {product.description}
-                                </span>
+                                </p>
+                            </div>
                         </div>
                     </div>
-                    <h5 className="text-end">{product.price} руб.</h5>
+                    <div className="mt-5 mx-2 flex justify-beetwen items-center">
+                        {isAuthAdmin ? (
+                            <div className="mx-10">
+                                <h5 className="text-center font-bold border-2 border-[#7A8D9B] rounded-md w-24">
+                                    {product.price} руб.
+                                </h5>
+                            </div>
+                        ) : (
+                            <h5 className="text-center font-bold border-2 border-[#7A8D9B] rounded-l-md w-24">
+                                {product.price} руб.
+                            </h5>
+                        )}
 
-                    {!isAuth || isAuthAdmin ? null : !isProductInCart ? (
-                        <button
-                            className="bg-[#7A8D9B] rounded text-[#DABEB6] px-1 hover:bg-[#596872] duration-500"
-                            onClick={handleAddToCart}
-                        >
-                            Купить
-                        </button>
-                    ) : (
-                        <Link to="/cart">
-                            <button className="bg-[#7A8D9B] rounded text-[#DABEB6] px-1 hover:bg-[#596872] duration-500">
-                                В корзину
+                        {!isAuth || isAuthAdmin ? null : !isProductInCart ? (
+                            <button
+                                className="btn-style rounded-r-md px-1"
+                                onClick={handleAddToCart}
+                            >
+                                Купить
                             </button>
-                        </Link>
-                    )}
+                        ) : (
+                            <Link to="/cart">
+                                <button className="btn-style rounded-r-md border-2 border-[#7A8D9B] px-1 ">
+                                    В корзину
+                                </button>
+                            </Link>
+                        )}
+                    </div>
                 </div>
             ) : (
                 <Loader />

@@ -13,31 +13,25 @@ const Main = () => {
         <>
             <h1 className="text-center">Пряники Самара</h1>
             <div className="mt-10 flex justify-center">
-            <SearchForm onSearch={handleSearch} />
+                <SearchForm onSearch={handleSearch} />
             </div>
             {newProducts.length > 0 ? (
-                <div className="container mt-5">
-                    <div className="row">
-                        <div className="col-md-6 offset-md-3 shadow p-4">
+                <div className="container w-5/12 mx-auto mt-10 rounded-lg shadow-xl p-10 bg-[#DABEB6] text-[#7A8D9B]">
                             {newProducts.map((item) => (
                                 <div key={item._id}>
-                                    <div className="d-flex justify-content-between">
+                                    <div className="flex justify-between items-center">
                                         <Link
-                                            className="nav-link mt-2 px-2"
+                                            className="mt-2 px-2"
                                             to={`/product/${item._id}`}
                                         >
                                             {item.title}
                                         </Link>
-                                        <div className="d-flex align-items-center">
                                             {item.price} руб.
-                                        </div>
                                     </div>
-                                    <hr className="m-0" />
+                                    <hr className="border border-[#7A8D9B] bg-[#7A8D9B]" />
                                 </div>
                             ))}
                         </div>
-                    </div>
-                </div>
             ) : null}
         </>
     );

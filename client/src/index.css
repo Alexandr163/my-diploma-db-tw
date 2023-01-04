@@ -15,3 +15,11 @@ code {
     font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
         monospace;
 }
+
+.navBar-link {
+    @apply text-[#DABEB6] hover:text-[#B2B9BF] duration-500
+}
+
+.btn-style {
+    @apply bg-[#7A8D9B] hover:bg-[#596872] duration-500 text-[#DABEB6] font-semibold
+}
