@@ -8,7 +8,7 @@ body {
         "Helvetica Neue", sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    background-color: #E3D4D0;
+    background-color: #e7ceb4;
 }
 
 code {
@@ -17,9 +17,9 @@ code {
 }
 
 .navBar-link {
-    @apply text-[#DABEB6] hover:text-[#B2B9BF] duration-500
+    @apply text-[#e7ceb4] hover:text-[#e4bcbc] duration-500
 }
 
 .btn-style {
-    @apply bg-[#7A8D9B] hover:bg-[#596872] duration-500 text-[#DABEB6] font-semibold
+    @apply bg-[#e7ceb4] shadow-md shadow-[#e4bcbc] hover:bg-[#e4bcbc] duration-500 text-[#51382a] font-semibold
 }

@@ -13,8 +13,8 @@ const SearchForm = ({ onSearch }) => {
         <div className="flex">
             <input
                 type="text"
-                className="w-96 bg-[#f0e3e0] rounded-xl text-[#7A8D9B]"
-                placeholder="  Найти товар..."
+                className="w-96 bg-[#b4856e2b] rounded-xl text-[#51382a] px-5 shadow-md shadow-[#e4bcbc]"
+                placeholder="Найти товар..."
                 onChange={handleChangeValue}
                 value={value}
             />
@@ -23,7 +23,7 @@ const SearchForm = ({ onSearch }) => {
                 type="button"
                 onClick={() => onSearch(value)}
             >
-                <ImSearch className="text-[#7A8D9B] hover:text-[#f0e3e0] duration-500 " size="25" />
+                <ImSearch className="text-[#51382a] hover:text-[#e4bcbc] duration-500 " size="25" />
             </button>
         </div>
     );

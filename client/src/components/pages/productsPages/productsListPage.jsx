@@ -35,7 +35,7 @@ const ProductsListPage = ({ categoryId }) => {
 
     return (
         <>
-            <div className="d-flex justify-content-between">
+            <div className="flex justify-between">
                 <ButtonGoBack />
                 <button
                     className={`bi bi-sort-down${
@@ -44,20 +44,15 @@ const ProductsListPage = ({ categoryId }) => {
                     onClick={handleSort}
                 ></button>
             </div>
+                <h4 className="text-center my-5 shadow-md shadow-[#e4bcbc] rounded-xl font-bold italic">Продукция</h4>
             {productsList.map((item) => (
                 <div key={item._id}>
-                    <div className="d-flex justify-content-between">
-                        <Link
-                            className="nav-link px-2"
-                            to={`/product/${item._id}`}
-                        >
-                            {item.title}
-                        </Link>
-                        <div className="d-flex align-items-center">
+                    <div className="flex justify-between mb-5 shadow-md shadow-[#e4bcbc] font-semibold italic px-2 rounded-xl hover:bg-[#e4bcbc] duration-500">
+                        <Link to={`/product/${item._id}`}>{item.title}</Link>
+                        <div className="flex items-center">
                             {item.price} руб.
                         </div>
                     </div>
-                    <hr className="m-0" />
                 </div>
             ))}
         </>

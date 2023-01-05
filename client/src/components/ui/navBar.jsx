@@ -10,8 +10,8 @@ const NavBar = () => {
     const isAuthAdmin = useSelector(getisAuthAdmin());
 
     return (
-        <header className="bg-[#7A8D9B] px-2 border-b flex items-center justify-between">
-            <p className="font-bold text-[#DABEB6] Trattatello italic">Белка Пряник</p>
+        <header className="bg-[#b4856e] px-2 shadow-[#e4bcbc] shadow-md border-[#e4bcbc] flex items-center justify-between">
+            <p className="font-bold text-[#e7ceb4] italic">Белка Пряник</p>
             <nav className="flex justify-between">
                 <ul className="flex items-center">
                     <li className="m-2">
