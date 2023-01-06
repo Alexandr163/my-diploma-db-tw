@@ -38,7 +38,7 @@ const ProductPage = () => {
     return (
         <>
             {product ? (
-                <div className="container w-6/12 mx-auto mt-10 rounded-lg shadow-md shadow-[#e4bcbc] p-10 bg-[#e7ceb4] text-[#51382a] italic">
+                <div className="container w-5/12 mx-auto rounded-b-xl shadow-md shadow-[#e4bcbcb7] p-10 bg-[#e7ceb4b7] text-[#51382a] italic">
                         <ButtonGoBack />
                         {isAuthAdmin ? (
                             <button

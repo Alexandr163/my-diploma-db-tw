@@ -59,9 +59,7 @@ const LoginForm = () => {
         dispatch(signIn(data.email, data.password));
     };
     return (
-        <div className="container mt-5">
-            <div className="row">
-                <div className="col-md-6 offset-md-3 shadow p-4">
+        <div className="container w-5/12 mx-auto rounded-b-xl shadow-md shadow-[#e4bcbcb7] p-3 bg-[#e7ceb4b7] text-[#51382a] italic">
                     <form onSubmit={handleSubmit}>
                         <TextField
                             label="Электронная почта"
@@ -97,8 +95,6 @@ const LoginForm = () => {
                         </div>
                     </form>
                 </div>
-            </div>
-        </div>
     );
 };
 

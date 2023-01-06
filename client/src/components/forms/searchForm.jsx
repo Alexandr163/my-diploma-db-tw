@@ -13,7 +13,7 @@ const SearchForm = ({ onSearch }) => {
         <div className="flex">
             <input
                 type="text"
-                className="w-96 bg-[#b4856e2b] rounded-xl text-[#51382a] px-5 shadow-md shadow-[#e4bcbc]"
+                className="w-96 bg-[#e7ceb4f3] rounded-xl text-[#b4856e] px-5 focus:outline-none focus:ring-2 focus:ring-[#b4856e]"
                 placeholder="Найти товар..."
                 onChange={handleChangeValue}
                 value={value}

@@ -8,7 +8,15 @@ body {
         "Helvetica Neue", sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    background-color: #e7ceb4;
+    background: url("../public/img/bg.jpg") no-repeat fixed;
+    background-size: cover;
+    background-blend-mode: lighten;
+    background-color: #e7ceb469
+
+
+
+
+
 }
 
 code {
@@ -21,5 +29,5 @@ code {
 }
 
 .btn-style {
-    @apply bg-[#e7ceb4] shadow-md shadow-[#e4bcbc] hover:bg-[#e4bcbc] duration-500 text-[#51382a] font-semibold
+    @apply bg-[#e7ceb400] shadow-lg shadow-[#e4bcbc] hover:bg-[#e4bcbca2] duration-500 text-[#51382a] font-semibold
 }
