@@ -59,7 +59,7 @@ const LoginForm = () => {
         dispatch(signIn(data.email, data.password));
     };
     return (
-        <div className="container w-5/12 mx-auto rounded-b-xl shadow-md shadow-[#e4bcbcb7] p-3 bg-[#e7ceb4b7] text-[#51382a] italic">
+        <div className="container w-5/12 mx-auto rounded-b-xl shadow-md shadow-[#e4bcbcb7] p-5 bg-[#e7ceb4b7] text-[#51382a] italic">
                     <form onSubmit={handleSubmit}>
                         <TextField
                             label="Электронная почта"
@@ -77,17 +77,15 @@ const LoginForm = () => {
                             error={errors.password}
                         />
                         <button
-                            className="btn btn-primary w-100 mx-auto"
+                            className="btn-style w-full rounded-lg"
                             type="submit"
                             disabled={!isValid}
                         >
-                            Submit
+                            Войти
                         </button>
 
-                        <div>
+                        <div className="btn-style w-48 text-center mt-5 rounded-lg">
                             <Link
-                                className="nav-link "
-                                aria-current="page"
                                 to="/register"
                             >
                                 Зарегистрироваться

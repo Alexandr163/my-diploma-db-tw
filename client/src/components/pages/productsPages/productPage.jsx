@@ -69,12 +69,12 @@ const ProductPage = () => {
                     <div className="mt-5 mx-2 flex justify-beetwen items-center">
                         {isAuthAdmin ? (
                             <div className="mx-10">
-                                <h5 className="text-center font-bold shadow-md shadow-[#e4bcbc] rounded-md w-24">
+                                <h5 className="text-center border-2 border-[#e4bcbc] font-bold  rounded-md w-24">
                                     {product.price} руб.
                                 </h5>
                             </div>
                         ) : (
-                            <h5 className="text-center font-bold shadow-md shadow-[#e4bcbc] rounded-l-md w-24">
+                            <h5 className="text-center border-2 border-[#e4bcbc] font-bold  rounded-l-md w-24">
                                 {product.price} руб.
                             </h5>
                         )}

@@ -11,7 +11,7 @@ const TextField = ({ label, type, name, value, onChange, error }) => {
 
     const getInputClasses = () => {
         return (
-            "w-full py-2 rounded text-sm  h-12 focus:outline-none bg-white ring-1 ring-slate-900/10 hover:ring-slate-300 focus:outline-none focus:ring-2 focus:ring-sky-500 shadow-sm rounded-lg text-slate-400 pr-2 " +
+            "w-full py-2 rounded text-sm focus:outline-none bg-[#e7ceb4f3] ring-2 ring-[#e7ceb4] hover:ring-[#e4bcbc] focus:outline-none focus:ring-2 focus:ring-[#b4856e] shadow-sm rounded-lg text-[#b4856e] pr-2" +
             (error ? "pl-3 xs:pl-12" : "pl-3")
         );
     };
@@ -35,7 +35,7 @@ const TextField = ({ label, type, name, value, onChange, error }) => {
                         className={getInputClasses()}
                     />
                     {type === "password" && (
-                        <button className="" onClick={toggleShowPassword}>
+                        <button className="mx-2" onClick={toggleShowPassword}>
                             {showPassword ? (
                                 <IoIosEye className="relative w-6 h-6" />
                             ) : (
@@ -44,7 +44,7 @@ const TextField = ({ label, type, name, value, onChange, error }) => {
                         </button>
                     )}
                 </div>
-                {error && <div className="invalid-feedback">{error}</div>}
+                {error && <div className={error + "text-end"}>{error}</div>}
             </div>
         </div>
     );
