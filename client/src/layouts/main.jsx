@@ -11,7 +11,6 @@ const Main = () => {
 
     return (
         <>
-            <h1 className="text-center">Пряники Самара</h1>
             <div className="mt-10 flex justify-center">
                 <SearchForm onSearch={handleSearch} />
             </div>
@@ -32,18 +31,17 @@ const Main = () => {
                     ))}
                 </div>
             ) : null}
-            <div className="flex">
-                <div className="pl-10 mt-20">
-                    <img
-                        className="rounded-xl border-2 border-[#e4bcbc]"
-                        src={`/img/Main.jpg`}
+            <div className="p-20">
+                <figure className="flex p-10 border-2 border-[#b4856e] rounded-xl bg-[#e7ceb4b2] w-8/12 mx-auto shadow-xl">
+                <img
+                        className="w-48 h-48 rounded-full border-2 border-[#b4856e]"
+                        src={`/img/main1.jpg`}
                     />
-                </div>
-                <div className="flex-col mt-10">
-                    <p className="mx-3 italic font-bold text-[#51382a] text-2xl">
+                    <blockquote>
+                    <p className="italic font-bold text-[#51382a] text-2xl">
                         Всем Привет!
                     </p>
-                    <p className=" w-6/12 mx-10 italic font-bold text-[#51382a] text-lg">
+                    <p className="ml-5 italic font-bold text-[#51382a] text-lg">
                         Я Оля, мне 36 лет, у меня двое детей, свой дом и
                         пряничное творчество.
                         <br />
@@ -80,9 +78,10 @@ const Main = () => {
                         МОЖНО!
                         <br />
                     </p>
-                    <p className="w-6/12 mt-2 mx-40 italic font-bold text-[#51382a] text-lg">P. S. : я предлагаю вам в первую очередь ЭМОЦИИ, а не еду.</p>
+                    <p className="mt-3 italic font-bold text-[#51382a] text-lg text-end">P. S. : я предлагаю вам в первую очередь ЭМОЦИИ, а не еду.</p>
+                    </blockquote>
+                </figure>
                 </div>
-            </div>
         </>
     );
 };
