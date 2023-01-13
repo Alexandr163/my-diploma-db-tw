@@ -11,7 +11,7 @@ const Main = () => {
 
     return (
         <>
-            <div className="mt-10 flex justify-center">
+            <div className="mt-20 flex justify-center">
                 <SearchForm onSearch={handleSearch} />
             </div>
             {newProducts.length > 0 ? (
