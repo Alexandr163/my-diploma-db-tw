@@ -11,7 +11,7 @@ const ButtonGoBack = ({ count = -1 }) => {
     };
 
     return (
-        <button className="bg-[#e7ceb400] shadow-lg border-2 border-[#e4bcbc] hover:bg-[#e4bcbca2] duration-500 rounded-l-md text-[#51382a]" onClick={handleBack}>
+        <button className="bg-[#e7ceb400] shadow-lg border-2 border-[#b4856e] hover:bg-[#e4bcbca2] duration-500 rounded-l-md text-[#51382a]" onClick={handleBack}>
             <FiArrowLeft size="25" />
         </button>
     );

@@ -29,5 +29,5 @@ code {
 }
 
 .btn-style {
-    @apply bg-[#e7ceb400] border-2 border-[#e4bcbc] hover:bg-[#e4bcbca2] duration-500 text-[#51382a] font-semibold
+    @apply bg-[#e7ceb400] border-2 border-[#b4856e] hover:bg-[#e4bcbca2] duration-500 text-[#51382a] font-semibold
 }

@@ -18,6 +18,7 @@ import ButtonGoBack from "../../forms/buttonGoBack";
 import TextField from "../../forms/textField";
 import productsService from "../../../services/products.service";
 import TextAreaField from "../../forms/textAreaField";
+import { FiEdit } from "react-icons/fi";
 
 const AdminPage = () => {
     const init = {
@@ -146,181 +147,147 @@ const AdminPage = () => {
 
     return (
         <>
-            <div className="d-flex justify-content-center">
-                <div className="container mt-5">
-                    <div className="row">
-                        <div
-                            className={`col-md-${
-                                isFullForm ? "6" : "10"
-                            } offset-md-3 shadow p-4`}
-                        >
-                            <ButtonGoBack />
-                            <div className="text-center">
-                                <h3>
-                                    {productId
-                                        ? "Редактирование товара"
-                                        : "Добавление товара"}
-                                </h3>
-                            </div>
-                            <div>
-                                <TextField
-                                    type="text"
-                                    name="productName"
-                                    label="Название"
-                                    value={data.productName}
-                                    onChange={handleChange}
-                                />
-                                <TextAreaField
-                                    type="text"
-                                    value={data.description}
-                                    onChange={handleChange}
-                                    name="description"
-                                    label="Описание"
-                                />
-                                <TextField
-                                    type="number"
-                                    name="price"
-                                    label="Стоимость"
-                                    value={data.price}
-                                    onChange={handleChange}
-                                />
-                                <div>
-                                    <select
-                                        className="form-select mb-3 w-60"
-                                        aria-label=".form-select-lg example"
-                                        name="selectCategory"
-                                        value={data.selectCategory}
-                                        onChange={handleSelect}
-                                    >
-                                        <option value="">
-                                            Новая категория
+            <div className="container w-5/12 mx-auto rounded-b-xl shadow-md shadow-[#e4bcbcb7] p-5 bg-[#e7ceb4b7] text-[#51382a] italic">
+                <div className="">
+                    <ButtonGoBack />
+                    <div className="text-center font-bold text-xl">
+                        <h3>
+                            {productId
+                                ? "Редактирование товара"
+                                : "Добавление товара"}
+                        </h3>
+                    </div>
+                    <div>
+                        <TextField
+                            type="text"
+                            name="productName"
+                            label="Название"
+                            value={data.productName}
+                            onChange={handleChange}
+                        />
+                        <TextAreaField
+                            type="text"
+                            value={data.description}
+                            onChange={handleChange}
+                            name="description"
+                            label="Описание"
+                        />
+                        <TextField
+                            type="number"
+                            name="price"
+                            label="Стоимость"
+                            value={data.price}
+                            onChange={handleChange}
+                        />
+                        <div>
+                            <select
+                                className="w-full mt-3 p-3 rounded-lg text-sm bg-[#e7ceb4f3] ring-2 ring-[#e7ceb4] hover:ring-[#e4bcbc] focus:outline-none focus:ring-2 focus:ring-[#b4856e] shadow-sm text-[#b4856e] pr-2"
+                                aria-label=".form-select-lg example"
+                                name="selectCategory"
+                                value={data.selectCategory}
+                                onChange={handleSelect}
+                            >
+                                <option value="">Новая категория</option>
+                                {categoriesList.map((item) => {
+                                    return (
+                                        <option value={item._id} key={item._id}>
+                                            {item.title}
                                         </option>
-                                        {categoriesList.map((item) => {
-                                            return (
-                                                <option
-                                                    value={item._id}
-                                                    key={item._id}
-                                                >
-                                                    {item.title}
-                                                </option>
-                                            );
-                                        })}
-                                    </select>
-                                    <div
-                                        className="btn-group"
-                                        role="group"
-                                        aria-label="Basic mixed styles outlined example"
-                                    >
-                                        <button
-                                            type="button"
-                                            className="btn btn-outline-success mb-3 btn-sm"
-                                            onClick={handleAddCategory}
-                                            disabled={data.selectCategory}
-                                        >
-                                            Добавить
-                                        </button>
-                                        <button
-                                            type="button"
-                                            className="btn btn-outline-primary mb-3 btn-sm"
-                                            onClick={handleEditCategory}
-                                            disabled={!data.selectCategory}
-                                        >
-                                            Редактировать
-                                        </button>
-                                        <button
-                                            type="button"
-                                            className="btn btn-outline-danger mb-3 btn-sm"
-                                            onClick={handleDeleteCategory}
-                                            disabled={!data.selectCategory}
-                                        >
-                                            Удалить
-                                        </button>
-                                    </div>
-                                </div>
-                                {toggle ? (
-                                    <div className="d-flex justify-content-center mb-3">
-                                        <TextField
-                                            type="text"
-                                            name="newCategoryName"
-                                            label="Категория"
-                                            value={data.newCategoryName}
-                                            onChange={handleChange}
-                                        />
-                                        <button
-                                            type="button"
-                                            className="btn btn-outline-success my-4 btn-sm"
-                                            onClick={handleSaveCategory}
-                                        >
-                                            Сохранить
-                                        </button>
-                                    </div>
-                                ) : null}
-                                <div className="d-flex justify-content-center mt-3">
-                                    <div
-                                        className="btn-group"
-                                        role="group"
-                                        aria-label="Basic mixed styles outlined example"
-                                    >
-                                        <button
-                                            type="button"
-                                            className="btn btn-outline-success btn-sm"
-                                            onClick={handleSaveProduct}
-                                        >
-                                            Сохранить товар
-                                        </button>
-                                        <button
-                                            type="button"
-                                            className="btn btn-outline-danger btn-sm"
-                                            onClick={handleDeleteProduct}
-                                        >
-                                            Удалить товар
-                                        </button>
-                                    </div>
-                                </div>
+                                    );
+                                })}
+                            </select>
+                            <div className="mt-3">
+                                <button
+                                    className="px-1 btn-style rounded-l-lg"
+                                    onClick={handleAddCategory}
+                                    disabled={data.selectCategory}
+                                >
+                                    Добавить
+                                </button>
+                                <button
+                                    className="px-1 btn-style"
+                                    onClick={handleEditCategory}
+                                    disabled={!data.selectCategory}
+                                >
+                                    Редактировать
+                                </button>
+                                <button
+                                    className="px-1 btn-style rounded-r-lg"
+                                    onClick={handleDeleteCategory}
+                                    disabled={!data.selectCategory}
+                                >
+                                    Удалить
+                                </button>
                             </div>
+                        </div>
+                        {toggle ? (
+                            <div className="mb-3">
+                                <TextField
+                                    type="text"
+                                    name="newCategoryName"
+                                    label="Категория"
+                                    value={data.newCategoryName}
+                                    onChange={handleChange}
+                                />
+                                <button
+                                    type="button"
+                                    className="px-1 btn-style rounded-lg"
+                                    onClick={handleSaveCategory}
+                                >
+                                    Сохранить
+                                </button>
+                            </div>
+                        ) : null}
+                        <div className="flex justify-center mt-5 mx-auto">
+                            <button
+                                type="button"
+                                className="px-1 btn-style rounded-l-lg"
+                                onClick={handleSaveProduct}
+                            >
+                                Сохранить товар
+                            </button>
+                            <button
+                                type="button"
+                                className="px-1 btn-style rounded-r-lg"
+                                onClick={handleDeleteProduct}
+                            >
+                                Удалить товар
+                            </button>
                         </div>
                     </div>
                 </div>
+
                 {isFullForm ? null : (
-                    <div className="container mt-5">
-                        <div className="row">
-                            <div className="col-md-8 offset-md-2 shadow p-4">
-                                <div>
-                                    <div className="d-flex justify-content-center mb-3">
-                                        <div>
-                                            <h2 className="text-center">
-                                                Список Товаров
-                                            </h2>
-                                            <hr width="270px" />
+                    <div>
+                        <h2 className="mt-5 mb-5 text-center font-bold">
+                            Список Товаров
+                        </h2>
+                        <div className="h-40 overflow-auto scrollbar-thumb-[#b4856e] scrollbar-thumb-rounded-lg scrollbar-track-[#e7ceb4] scrollbar-track-rounded-lg scrollbar-thin">
+                            {productsList.map((item) => {
+                                return (
+                                    <div key={item._id} className="px-5">
+                                        <div className="flex justify-between px-2 items-center text-center font-semibold mb-3 rounded-xl shadow-md shadow-[#e4bcbcb7] hover:bg-[#e4bcbca2] duration-500">
+                                            <Link
+                                                to={`/admin/${item._id}`}
+                                                state={{
+                                                    adminForm: true
+                                                }}
+                                            >
+                                                <FiEdit />
+                                            </Link>
+                                            <Link
+                                                className="nav-link mt-2 px-2"
+                                                to={`/product/${item._id}`}
+                                            >
+                                                {item.title}
+                                            </Link>
+                                            <div className="d-flex align-items-center">
+                                                {item.price} руб.
+                                            </div>
                                         </div>
                                     </div>
-                                    {productsList.map((item) => {
-                                        return (
-                                            <div key={item._id}>
-                                                <div className="d-flex justify-content-between">
-                                                    <Link
-                                                        className="nav-link mt-2 px-2 bi-pencil-square"
-                                                        to={`/admin/${item._id}`}
-                                                        state={{
-                                                            adminForm: true
-                                                        }}
-                                                    ></Link>
-                                                    <Link
-                                                        className="nav-link mt-2 px-2"
-                                                        to={`/product/${item._id}`}
-                                                    >
-                                                        {item.title}
-                                                    </Link>
-                                                    <div className="d-flex align-items-center">
-                                                        {item.price} руб.
-                                                    </div>
-                                                </div>
-                                                <hr className="m-0" />
-                                            </div>
-                                        );
-                                    })}
-                                </div>
-                            </div>
+                                );
+                            })}
                         </div>
                     </div>
                 )}

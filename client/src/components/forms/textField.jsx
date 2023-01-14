@@ -11,7 +11,7 @@ const TextField = ({ label, type, name, value, onChange, error }) => {
 
     const getInputClasses = () => {
         return (
-            "w-full py-2 rounded text-sm focus:outline-none bg-[#e7ceb4f3] ring-2 ring-[#e7ceb4] hover:ring-[#e4bcbc] focus:outline-none focus:ring-2 focus:ring-[#b4856e] shadow-sm rounded-lg text-[#b4856e] pr-2" +
+            "w-full p-3 text-sm bg-[#e7ceb4f3] ring-2 ring-[#e7ceb4] hover:ring-[#e4bcbc] focus:outline-none focus:ring-2 focus:ring-[#b4856e] shadow-sm rounded-lg text-[#b4856e] pr-2" +
             (error ? "pl-3 xs:pl-12" : "pl-3")
         );
     };
