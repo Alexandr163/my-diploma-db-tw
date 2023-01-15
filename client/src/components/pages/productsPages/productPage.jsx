@@ -50,7 +50,7 @@ const ProductPage = () => {
                         ) : null}
                     <div className="flex justify-beetwen">
                         <img
-                            className="rounded-md shadow-md shadow-[#e4bcbc]"
+                            className="rounded-md shadow-md shadow-[#e4bcbc] border-2 border-[#b4856e]"
                             src={`/img/${product.image}`}
                             width="200px"
                             height="200px"
