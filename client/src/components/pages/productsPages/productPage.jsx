@@ -6,6 +6,7 @@ import { getIsAuth, getisAuthAdmin } from "../../../store/authSlice";
 import { addProductInCart, getCart } from "../../../store/cart";
 import ButtonGoBack from "../../forms/buttonGoBack";
 import Loader from "../../loader";
+import { FiEdit3 } from "react-icons/fi";
 
 const ProductPage = () => {
     const { productId } = useParams();
@@ -37,55 +38,61 @@ const ProductPage = () => {
     return (
         <>
             {product ? (
-                <div className="container mt-5">
-                    <div className="row">
-                        <div className="col-md-6 offset-md-3 shadow p-4">
-                            <div className="btn-group">
-                                <ButtonGoBack />
-                                {isAuthAdmin ? (
-                                    <button
-                                        className="btn btn-outline-primary mb-3 btn-sm bi bi-pencil-square"
-                                        onClick={handleEdit}
-                                    ></button>
-                                ) : null}
+                <div className="container w-5/12 mx-auto rounded-b-xl shadow-md shadow-[#e4bcbcb7] p-10 bg-[#e7ceb4b7] text-[#51382a] italic">
+                        <ButtonGoBack />
+                        {isAuthAdmin ? (
+                            <button
+                                className="btn-style rounded-r-md"
+                                onClick={handleEdit}
+                            >
+                                <FiEdit3 size="25" />
+                            </button>
+                        ) : null}
+                    <div className="flex justify-beetwen">
+                        <img
+                            className="rounded-md shadow-md shadow-[#e4bcbc] border-2 border-[#b4856e]"
+                            src={`/img/${product.image}`}
+                            width="200px"
+                            height="200px"
+                        />
+                        <div className="mx-5 w-50">
+                            <h2 className="text-center text-lg font-bold  shadow-md shadow-[#e4bcbc] rounded-md">
+                                {product.title}
+                            </h2>
+                            <div className="mt-3 shadow-md shadow-[#e4bcbc] rounded-md text-center">
+                                <p className="font-semibold">
+                                    {product.description}
+                                </p>
                             </div>
-                            <div className="d-flex justify-content-beetwen">
-                                <img
-                                    className="rounded float-start"
-                                    src={`/img/${product.image}`}
-                                    width="200px"
-                                    height="200px"
-                                />
-                                <div className="mx-5 w-50">
-                                    <h4 className="text-center">
-                                        {product.title}
-                                    </h4>
-                                    <div className="d-flex justify-content-beetwen text-center w-100">
-
-                                    <span className="text-center">
-                                        {product.description}
-                                    </span>
-                                    </div>
-                                </div>
-                            </div>
-                            <h5 className="text-end">{product.price} руб.</h5>
-
-                            {!isAuth ||
-                            isAuthAdmin ? null : !isProductInCart ? (
-                                <button
-                                    className="btn btn-outline-primary btn-sm mt-3"
-                                    onClick={handleAddToCart}
-                                >
-                                    Купить
-                                </button>
-                            ) : (
-                                <Link to="/cart">
-                                    <button className="btn btn-outline-primary btn-sm">
-                                        В корзину
-                                    </button>
-                                </Link>
-                            )}
                         </div>
+                    </div>
+                    <div className="mt-5 mx-2 flex justify-beetwen items-center">
+                        {isAuthAdmin ? (
+                            <div className="mx-10">
+                                <h5 className="text-center border-2 border-[#b4856e] font-bold  rounded-md w-24">
+                                    {product.price} руб.
+                                </h5>
+                            </div>
+                        ) : (
+                            <h5 className="text-center border-2 border-[#b4856e] font-bold  rounded-l-md w-24">
+                                {product.price} руб.
+                            </h5>
+                        )}
+
+                        {!isAuth || isAuthAdmin ? null : !isProductInCart ? (
+                            <button
+                                className="btn-style rounded-r-md px-1"
+                                onClick={handleAddToCart}
+                            >
+                                Купить
+                            </button>
+                        ) : (
+                            <Link to="/cart">
+                                <button className="btn-style rounded-r-md shadow-md px-1 ">
+                                    В корзину
+                                </button>
+                            </Link>
+                        )}
                     </div>
                 </div>
             ) : (

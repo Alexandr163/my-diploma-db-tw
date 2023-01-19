@@ -1,4 +1,6 @@
-
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 body {
     margin: 0;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
@@ -6,9 +8,26 @@ body {
         "Helvetica Neue", sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    background: url("../public/img/bg.jpg") no-repeat fixed;
+    background-size: cover;
+    background-blend-mode: lighten;
+    background-color: #e7ceb469
+
+
+
+
+
 }
 
 code {
     font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
         monospace;
+}
+
+.navBar-link {
+    @apply text-[#e7ceb4] hover:text-[#e4bcbc] duration-500
+}
+
+.btn-style {
+    @apply bg-[#e7ceb400] border-2 border-[#b4856e] hover:bg-[#e4bcbca2] duration-500 text-[#51382a] font-semibold
 }

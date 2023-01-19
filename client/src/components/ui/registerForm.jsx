@@ -84,72 +84,61 @@ const RegisterForm = () => {
     };
 
     return (
-        <div className="container mt-5">
-            <div className="row">
-                <div className="col-md-6 offset-md-3 shadow p-4">
-                    <form onSubmit={handleSubmit}>
-                        <TextField
-                            label="Электронная почта"
-                            name="email"
-                            value={data.email}
-                            onChange={handleChange}
-                            error={errors.email}
-                        />
-                        <TextField
-                            label="Имя"
-                            name="name"
-                            value={data.name}
-                            onChange={handleChange}
-                            error={errors.name}
-                        />
-                        <TextField
-                            label="Пароль"
-                            type="password"
-                            name="password"
-                            value={data.password}
-                            onChange={handleChange}
-                            error={errors.password}
-                        />
+        <div className="container w-5/12 mx-auto rounded-b-xl shadow-md shadow-[#e4bcbcb7] p-5 bg-[#e7ceb4b7] text-[#51382a] italic">
+            <form onSubmit={handleSubmit}>
+                <TextField
+                    label="Электронная почта"
+                    name="email"
+                    value={data.email}
+                    onChange={handleChange}
+                    error={errors.email}
+                />
+                <TextField
+                    label="Имя"
+                    name="name"
+                    value={data.name}
+                    onChange={handleChange}
+                    error={errors.name}
+                />
+                <TextField
+                    label="Пароль"
+                    type="password"
+                    name="password"
+                    value={data.password}
+                    onChange={handleChange}
+                    error={errors.password}
+                />
 
-                        <TextField
-                            label="Номер телефона"
-                            type="number"
-                            name="phoneNumber"
-                            value={data.phoneNumber}
-                            onChange={handleChange}
-                            error={errors.phoneNumber}
-                        />
+                <TextField
+                    label="Номер телефона"
+                    type="number"
+                    name="phoneNumber"
+                    value={data.phoneNumber}
+                    onChange={handleChange}
+                    error={errors.phoneNumber}
+                />
 
-                        <RadioField
-                            options={[
-                                { name: "Male", value: "male" },
-                                { name: "Female", value: "female" },
-                                { name: "Other", value: "other" }
-                            ]}
-                            value={data.sex}
-                            name="sex"
-                            onChange={handleChange}
-                            label="Выберите ваш пол"
-                        />
-                        <button
-                            className="btn btn-primary w-100 mx-auto"
-                            type="submit"
-                            disabled={!isValid}
-                        >
-                            Зарегистрироваться
-                        </button>
-                        <div>
-                            <Link
-                                className="nav-link "
-                                aria-current="page"
-                                to="/login"
-                            >
-                                Войти
-                            </Link>
-                        </div>
-                    </form>
+                <RadioField
+                    options={[
+                        { name: "Мужской", value: "male" },
+                        { name: "Женский", value: "female" }
+                    ]}
+                    value={data.sex}
+                    name="sex"
+                    onChange={handleChange}
+                    label="Выберите ваш пол"
+                />
+                <button
+                    className="btn-style w-full rounded-lg"
+                    type="submit"
+                    disabled={!isValid}
+                >
+                    Зарегистрироваться
+                </button>
+                <div className="btn-style w-48 text-center mt-5 rounded-lg">
+                    <Link to="/login">Войти</Link>
                 </div>
-            </div>
+            </form>
         </div>
     );
 };
