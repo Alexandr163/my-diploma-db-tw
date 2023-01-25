@@ -26,11 +26,14 @@ const AdminPage = () => {
         productName: "",
         selectCategory: "",
         description: "",
+        image: "",
         price: 0
     };
 
     const { productId } = useParams();
     const [product, setProduct] = useState();
+
+    console.log(product);
 
     useEffect(() => {
         if (productId) {
@@ -39,12 +42,15 @@ const AdminPage = () => {
                     productName: product.title,
                     selectCategory: product.categoryId,
                     description: product.description,
+                    image: product.image,
                     price: product.price
                 };
 
                 setData(newData);
                 setProduct(product);
             });
+        } else {
+            setData(init);
         }
     }, [productId]);
 
@@ -58,6 +64,11 @@ const AdminPage = () => {
     const [toggle, setToggle] = useState(false);
     const categoriesList = useSelector(getCategories());
     const category = useSelector(getCategoryById(data.selectCategory));
+    // const [fileName, setFileName] = useState("");
+
+    // const onChangeFile = (e) => {
+    //     setFileName(e.target.files[0]);
+    // };
 
     const handleChange = (el) => {
         setData((prev) => ({ ...prev, [el.name]: el.value }));
@@ -120,7 +131,7 @@ const AdminPage = () => {
             categoryId: data.selectCategory,
             title: data.productName,
             description: data.description,
-            image: "",
+            image: data.image,
             price: Number(data.price)
         };
         if (productId) {
@@ -148,7 +159,7 @@ const AdminPage = () => {
     return (
         <>
             <div className="container w-5/12 mx-auto rounded-b-xl shadow-md shadow-[#e4bcbcb7] p-5 bg-[#e7ceb4b7] text-[#51382a] italic">
-                <div className="">
+                <div>
                     <ButtonGoBack />
                     <div className="text-center font-bold text-xl">
                         <h3>
@@ -196,6 +207,11 @@ const AdminPage = () => {
                                     );
                                 })}
                             </select>
+                            <input
+                                type="file"
+                                className="file:rounded-lg file:bg-[#f2dec8] file:border-none file:cursor-pointer file:text-[#b4856e] w-full mt-7 p-3 rounded-lg text-sm bg-[#e7ceb4f3] ring-2 ring-[#e7ceb4] hover:ring-[#e4bcbc] focus:outline-none focus:ring-2 focus:ring-[#b4856e] shadow-sm text-[#b4856e] pr-2"
+                                // onChange={onChangeFile}
+                            ></input>
                             <div className="mt-3">
                                 <button
                                     className="px-1 btn-style rounded-l-lg"
