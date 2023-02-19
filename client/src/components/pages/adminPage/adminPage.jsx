@@ -33,8 +33,6 @@ const AdminPage = () => {
     const { productId } = useParams();
     const [product, setProduct] = useState();
 
-    console.log(product);
-
     useEffect(() => {
         if (productId) {
             productsService.getProductById(productId).then((product) => {
